@@ -1,0 +1,22 @@
+{
+  "name": "Temp A",
+  "description": "Temp",
+  "keywords": [
+    "MEAN",
+    "Angular",
+    "Node",
+    "MongoDB",
+    "mLab"
+  ],
+  "repository": "https://git.heroku.com/mighty-hamlet-65430.git",
+  "success_url": "/",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    "mongolab"
+  ]
+}
