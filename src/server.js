@@ -18,6 +18,7 @@ var db;
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
   if (err) {
+	console.log("Mongodb initial failed.")
     console.log(err);
     process.exit(1);
   }
@@ -49,7 +50,7 @@ function handleError(res, reason, message, code) {
 app.get("/api/books", function(req, res) {
   db.collection(BOOK_REPO).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+      handleError(res, err.message, "Failed to get books.");
     } else {
       res.status(200).json(docs);
     }
