@@ -22,12 +22,7 @@ export class BookListComponent implements OnInit {
       .getBooks()
       .then((books: Book[]) => {
         this.books = books.map((book) => {
-          if (!book.phone) {
-            book.phone = {
-              mobile: '',
-              work: ''
-            }
-          }
+         
           return book;
         });
       });
@@ -45,7 +40,7 @@ export class BookListComponent implements OnInit {
 
   createNewBook() {
     var book: Book = {
-	  _id?: '',
+	  _id: '',
 	  title: '',
 	  author: '',
 	  isbn: '',

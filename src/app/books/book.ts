@@ -4,7 +4,7 @@ export class Book {
   author: string;
   isbn: string;
   genre: string;
-  price: double;
-  rank: double
+  price: number;
+  rank: number
 }
 

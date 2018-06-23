@@ -8,7 +8,7 @@ import { BookService } from '../book.service';
   styleUrls: ['./book-details.component.css']
 })
 
-export class BookDetailsComponent implements OnInit {
+export class BookDetailsComponent  {
   @Input()
   book: Book;
 
@@ -39,6 +39,5 @@ export class BookDetailsComponent implements OnInit {
     });
   }
   
-    ngOnInit() {
-  }
+
 }
