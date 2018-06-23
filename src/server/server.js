@@ -58,14 +58,14 @@ app.get("/api/books", function(req, res) {
 });
 
 app.post("/api/books", function(req, res) {
-  var newContact = req.body;
-  newContact.createDate = new Date();
+  var book = req.body;
+
 
   if (!req.body.title || !req.body.author) {
     handleError(res, "Invalid data", "Title and author are required.", 400);
   }
 
-  db.collection(BOOK_REPO).insertOne(newContact, function(err, doc) {
+  db.collection(BOOK_REPO).insertOne(book, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new book.");
     } else {
