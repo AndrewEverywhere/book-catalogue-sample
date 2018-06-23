@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
-var CONTACTS_COLLECTION = "books";
+var BOOK_REPO = "books";
 
 var app = express();
 app.use(bodyParser.json());
@@ -47,7 +47,7 @@ function handleError(res, reason, message, code) {
  */
 
 app.get("/api/books", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+  db.collection(BOOK_REPO).find({}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
@@ -60,11 +60,11 @@ app.post("/api/books", function(req, res) {
   var newContact = req.body;
   newContact.createDate = new Date();
 
-  if (!req.body.name) {
-    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  if (!req.body.title || !req.body.author) {
+    handleError(res, "Invalid data", "Title and author are required.", 400);
   }
 
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+  db.collection(BOOK_REPO).insertOne(newContact, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new book.");
     } else {
@@ -80,9 +80,9 @@ app.post("/api/books", function(req, res) {
  */
 
 app.get("/api/books/:id", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+  db.collection(BOOK_REPO).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get book");
+      handleError(res, err.message, "No such book availabe");
     } else {
       res.status(200).json(doc);
     }
@@ -93,9 +93,9 @@ app.put("/api/books/:id", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
-  db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+  db.collection(BOOK_REPO).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to update book");
+      handleError(res, err.message, "Can't update the book");
     } else {
       updateDoc._id = req.params.id;
       res.status(200).json(updateDoc);
@@ -104,9 +104,9 @@ app.put("/api/books/:id", function(req, res) {
 });
 
 app.delete("/api/books/:id", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+  db.collection(BOOK_REPO).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
-      handleError(res, err.message, "Failed to delete book");
+      handleError(res, err.message, "Can't delete the book");
     } else {
       res.status(200).json(req.params.id);s
     }
