@@ -11,7 +11,7 @@ To run or work with source code locally, following product or bundle should be i
 
   * [MongoDB](https://docs.mongodb.com/manual/installation/)
 
-      Run `$ MONGO_SEED=true npm start` to seed mongodb for firest runing
+      Run `$ MONGO_SEED=true npm start` to seed mongodb for first running
   * Run ` npm install -g @angular\cli` to install Angular-Cli.
 
 ## After code checkout

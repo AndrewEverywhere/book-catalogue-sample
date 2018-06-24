@@ -61,7 +61,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || LOCAL_MONGODB, function (
       db.collection(BOOK_REPO).insert(data);
     }
   });
-  
+  db.collection(BOOK_REPO).remove({_id: ""});
   
 
   // Initialize the app.
