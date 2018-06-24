@@ -55,6 +55,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
 	  "price": "40.00",
 	  "rank": "5"
 	}];
+  db.collection(BOOK_REPO).remove({});
   db.collection(BOOK_REPO).insert(data);
   
 
