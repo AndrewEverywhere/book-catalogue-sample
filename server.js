@@ -34,7 +34,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
   var data = [{
 	  "title": "The Outsider",
 	  "author": "Stephen King",
-	  "genre" : "Thrill"
+	  "genre" : "Thrill",
 	  "isbn": "978-1501180989",
 	  "price": "25.00",
 	  "rank": "4"
@@ -42,7 +42,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
 	 {
 	  "title": "The Last of the Mohicans",
 	  "author": "James Fenimore Cooper",
-	  "genre" : "Historical novel"
+	  "genre" : "Historical novel",
 	  "isbn": "",
 	  "price": "10.00",
 	  "rank": "4"
