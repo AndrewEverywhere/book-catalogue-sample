@@ -1,19 +1,24 @@
 # Book Catalogue Application
 
-This project was created for demostrating a web application/api developed with MEAN Stack. 
+This project was created for demostrating a web application and RESTful API developed with MEAN Stack. 
 
 An instance of the application is running at [Heroku](https://dry-headland-63113.herokuapp.com/)
 
-##Prerequisits
-To run or work with source code , following products should be installed.
-[node.js](https://nodejs.org/en/download/)
-[MongoDB](https://docs.mongodb.com/manual/installation/)
+## Prerequisits
+To run or work with source code locally, following product or bundle should be installed.
 
-Run "mongod -dbpath <local_path>" to start a local mongoDB at http://localhost:27017 in default.
+  * [node.js](https://nodejs.org/en/download/)
+
+  * [MongoDB](https://docs.mongodb.com/manual/installation/)
+
+      Run `$ MONGO_SEED=true npm start` to seed mongodb for firest runing
+  * Run ` npm install -g @angular\cli` to install Angular-Cli.
 
 ## After code checkout
-Run `npm install` to install all dependencies.   
-Run `npm start` to start application and API.  In Chrome or Firefox, open application `http://localhost:4200/`
+
+Run `npm install` to install all dependencies.
+
+Run `npm start` to start application and API.  In Chrome or Firefox, open application at `http://localhost:4200/`
 
 ## Build
 The project is automatically build after "npm install", or  
@@ -32,9 +37,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Cloud deployment
-The project can be be automatically deployed to [Heroku](https://dry-headland-63113.herokuapp.com/) by run command:
+The project can be deployed to Heroku by run command:
 `https://heroku.com/deploy?template=https://github.com/AndrewEverywhere/book-catalogue-sample.git`
 
-Or, by clicking the button
+Or, by clicking the button 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/AndrewEverywhere/book-catalogue-sample.git)
