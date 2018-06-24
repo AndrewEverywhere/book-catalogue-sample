@@ -61,7 +61,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || LOCAL_MONGODB, function (
       db.collection(BOOK_REPO).insert(data);
     }
   });
-  db.collection(BOOK_REPO).remove({_id: ""});
+  
   
 
   // Initialize the app.
@@ -97,19 +97,18 @@ app.get("/api/books", function(req, res) {
 app.post("/api/books", function(req, res) {
   var book = req.body;
 
-  book._id = new ObjectID();
-
   if (!req.body.title || !req.body.author) {
     handleError(res, "Invalid data", "Title and author are required.", 400);
+  } else {
+    book._id = new ObjectID();
+    db.collection(BOOK_REPO).insertOne(book, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new book.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
   }
-
-  db.collection(BOOK_REPO).insertOne(book, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create new book.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
 });
 
 /*  "/api/books/:id"
