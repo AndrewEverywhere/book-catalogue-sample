@@ -13,7 +13,7 @@ var distDir = __dirname + "/dist/";
 
 app.use(express.static(distDir));
 
-app.get("/*"", function(req,res) {
+app.get("/*", function(req,res) {
     
 	res.sendFile(path.join(distDir + "/index.html"));
 });
