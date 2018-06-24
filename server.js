@@ -13,10 +13,6 @@ var distDir = __dirname + "/dist/";
 
 app.use(express.static(distDir));
 
-//app.get("/", function(req,res) {
-//    
-//	res.sendFile(distDir + "/index.html");
-//});
 
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
@@ -33,6 +29,34 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
   // Save database object from the callback for reuse.
   db = client.db();
   console.log("Database connection ready");
+  
+  // Initial sample data
+  var data = [{
+	  "title": "The Outsider",
+	  "author": "Stephen King",
+	  "genre" : "Thrill"
+	  "isbn": "978-1501180989",
+	  "price": "25.00",
+	  "rank": "4"
+	 }, 
+	 {
+	  "title": "The Last of the Mohicans",
+	  "author": "James Fenimore Cooper",
+	  "genre" : "Historical novel"
+	  "isbn": "",
+	  "price": "10.00",
+	  "rank": "4"
+	 },
+	 {
+	  "title": "The Load Of Rings",
+	  "author": "J. R. R. Tolkien",
+	  "genre": "Fantasy",
+	  "isbn": "",
+	  "price": "40.00",
+	  "rank": "5"
+	}];
+  db.insert(data);
+  
 
   // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
