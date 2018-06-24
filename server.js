@@ -97,7 +97,7 @@ app.get("/api/books", function(req, res) {
 app.post("/api/books", function(req, res) {
   var book = req.body;
 
-  book.createDate = new Date();
+  book._id = new ObjectID();
 
   if (!req.body.title || !req.body.author) {
     handleError(res, "Invalid data", "Title and author are required.", 400);
