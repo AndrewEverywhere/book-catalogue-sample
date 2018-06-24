@@ -1,16 +1,22 @@
 <div class="container-fluid">
   <div>
-    <div class="col-md-5">
+    <div class="col-md-20">
       <h2>Book List</h2>
       <button class="btn btn-warning" (click)="createNewBook()">New</button>
       <ul class="list-group">
+        
+        <li class="row navbar-brand">
+          <div class="col-md-9">Title</div>
+          <div class="col-md-5">Genre</div>
+          <div class="col-md-5">Ranking</div>
+        </li>
         <li class="list-group-item row"
           *ngFor="let book of books"
           (click)="selectBook(book)"
           [class.active]="book === selectedBook">
-      <div class="col-md-9">{{book.title}}</div>
-      <div class="col-md-5">{{book.genre}}</div>
-      <div class="col-md-5">{{book.rank}}</div>
+          <div class="col-md-9">{{book.title}}</div>
+          <div class="col-md-5">{{book.genre}}</div>
+          <div class="col-md-5">{{book.rank}}</div>
         </li>
       </ul>
     </div>
