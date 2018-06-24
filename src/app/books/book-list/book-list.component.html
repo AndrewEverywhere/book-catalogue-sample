@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div>
+  <div class="row">
     <div class="col-md-6">
       <h2>Book List</h2>
       <ul class="list-group">
@@ -17,7 +17,7 @@
           <div class="col-sm-2">{{book.rank}}</div>
         </li>
       </ul>
-      <button class="btn btn-warning" (click)="createNewBook()">New</button>
+      <button class="btn btn-primary" (click)="createNewBook()">New</button>
     </div>
     <div class="col-md-5 col-md-offset-2">
       <book-details
