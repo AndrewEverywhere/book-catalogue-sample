@@ -2,7 +2,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
-const path = require('path');
 
 var BOOK_REPO = "books";
 
@@ -14,9 +13,9 @@ var distDir = __dirname + "/dist/";
 
 app.use(express.static(distDir));
 
-app.get("/*", function(req,res) {
+app.get("/", function(req,res) {
     
-	res.sendFile(path.join(distDir + "/index.html"));
+	res.sendFile(distDir + "/index.html");
 });
 
 
