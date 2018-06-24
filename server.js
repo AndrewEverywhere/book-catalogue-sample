@@ -1,3 +1,4 @@
+const LOCAL_MONGODB = "mongodb://localhost:27017/bookdb";
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
@@ -19,7 +20,7 @@ app.use(express.static(distDir));
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
+mongodb.MongoClient.connect(process.env.MONGODB_URI || LOCAL_MONGODB, function (err, client) {
   if (err) {
 	console.log("Mongodb initial failed.")
     console.log(err);
@@ -66,7 +67,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
   });
 });
 
-// BOOKS API ROUTES BELOW
+// CRUD API
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
