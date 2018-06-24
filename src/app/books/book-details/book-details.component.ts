@@ -23,13 +23,17 @@ export class BookDetailsComponent  {
 
   createBook(book: Book) {
     this.bookService.createBook(book).then((newBook: Book) => {
-      this.createHandler(newBook);
+      if (newBook) {
+        this.createHandler(newBook);
+      }
     });
   }
 
   updateBook(book: Book): void {
     this.bookService.updateBook(book).then((updatedBook: Book) => {
-      this.updateHandler(updatedBook);
+      if (updatedBook) {
+        this.updateHandler(updatedBook);
+      }
     });
   }
 
