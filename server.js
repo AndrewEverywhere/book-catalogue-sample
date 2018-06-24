@@ -56,8 +56,12 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || LOCAL_MONGODB, function (
 	  "price": "40.00",
 	  "rank": "5"
 	}];
-  db.collection(BOOK_REPO).remove({});
-  db.collection(BOOK_REPO).insert(data);
+  db.collection(BOOK_REPO).find({}, function(err, books){
+    if(!books) {
+      db.collection(BOOK_REPO).insert(data);
+    }
+  });
+  
   
 
   // Initialize the app.
