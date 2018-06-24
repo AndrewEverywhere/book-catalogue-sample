@@ -1,4 +1,4 @@
-const LOCAL_MONGODB = "mongodb://localhost:27017/test";
+const LOCAL_MONGODB = "mongodb://localhost:27017/bookdb";
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
@@ -67,7 +67,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || LOCAL_MONGODB, function (
   });
 });
 
-// BOOKS API ROUTES BELOW
+// CRUD API
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
