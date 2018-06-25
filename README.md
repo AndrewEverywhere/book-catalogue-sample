@@ -2,7 +2,7 @@
 
 This project was created for demostrating a web application and RESTful API developed with MEAN Stack. 
 
-An instance of the application is running at [Heroku](https://dry-headland-63113.herokuapp.com/)
+An instance of the application is running at Heroku [https://dry-headland-63113.herokuapp.com/](https://dry-headland-63113.herokuapp.com/)
 
 ## Prerequisits
 To run or work with source code locally, following product or bundle should be installed.
@@ -12,7 +12,7 @@ To run or work with source code locally, following product or bundle should be i
   * [MongoDB](https://docs.mongodb.com/manual/installation/)
 
       Run `$ MONGO_SEED=true npm start` to seed mongodb for first running
-  * Run ` npm install -g @angular\cli` to install Angular-Cli.
+  * Run ` npm install -g @angular\cli` to install [Angular-cli](https://cli.angular.io/).
 
 ## After code checkout
 
